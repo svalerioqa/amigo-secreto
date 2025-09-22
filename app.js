@@ -12,17 +12,13 @@ function agregarAmigo() {
         return;
     }
     
-    // Agregamos el nombre a nuestra lista
     amigos.push(nombre);
     
-    // Borramos lo que está escrito en el input
     document.getElementById('amigo').value = '';
     
-    // Mostramos la lista actualizada
     mostrarAmigos();
 }
 
-// Permitir agregar nombres cuando presiona Enter
 document.getElementById('amigo').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         agregarAmigo();
@@ -31,13 +27,11 @@ document.getElementById('amigo').addEventListener('keydown', function(event) {
 
 // Esta función muestra todos los amigos en la pantalla
 function mostrarAmigos() {
-    // Obtenemos el lugar donde vamos a mostrar la lista
+
     let lista = document.getElementById('listaAmigos');
     
-    // Primero borramos todo lo que había antes
     lista.innerHTML = '';
     
-    // Recorremos cada amigo y lo agregamos a la lista
     for (let i = 0; i < amigos.length; i++) {
         let elemento = document.createElement('li');
         elemento.textContent = amigos[i];
@@ -45,7 +39,6 @@ function mostrarAmigos() {
     }
 }
 
-// Esta función hace el sorteo y elige un amigo al azar
 function sortearAmigo() {
     // Si no hay amigos suficientes, no podemos hacer el sorteo
     if (amigos.length < 1) {
@@ -53,10 +46,7 @@ function sortearAmigo() {
         return;
     }
     
-    // Elegimos un número al azar
     let numeroRandom = Math.floor(Math.random() * amigos.length);
-    
-    // Con ese número, elegimos un amigo de la lista
     let amigoElegido = amigos[numeroRandom];
     
     // Mostramos el resultado
